@@ -1,0 +1,141 @@
+<div>
+    <button>
+        Christmas button
+        <img class="button-hat"
+        href="C:\Users\ACER\restaurance\obe\static\img\christmas\Pictures" alt="">
+    </button>
+
+    <canvas class="canvas"></canvas>
+</div>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+        min-height: 100vh;
+        background-image: radial-gradient(circle at 50% 100%, #1b1b35, #121225);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Open Sans', system-ui, sans-serif, 'Apple Color Emoji', 'Sogoe UI Emoji';
+    }
+
+    .button {
+        position: relative;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        padding: 8px 16px;
+        min-width: 8em;
+        text-align: center;
+        color: #fff;
+        background-image: linear-gradient(to bottom, #f12828, #a00332, #9f0f31), linear-gradient(to bottom, #ae0034, #6f094c);
+        background-clip: padding-box, border-box;
+        background-origin: padding-box, border-box;
+        box-shadow: 
+            inset 0 1px rgb(255 255 255 / .25),
+            inset 0 1px rgb(0 0 0 / .1), 0 2px 4px rgb(0 0 0 / .25);
+        transition: .2s;
+        will-change: transform;
+        
+        &:active {
+            transform: scale(.92);
+            filter: brightness(.8);
+        }
+    }
+
+    .button-hat {
+        position: absolute;
+        top: -15px;
+        left: -17px;
+        height: 44px;
+        filter: drop-shadow(0 2px 1px rgb(0 0 0 / .25));
+    }
+
+    .canvas {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+</style>
+
+<script>
+    const canvas = document.querySelector('.canvas');
+    const ctx = canvas.getContext('2d');
+
+    const pixelRatio = window.devicePixelRatio || 1;
+
+    const snowflakes = [];
+    class Snowflake {
+        constructor () {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.width;
+
+            const maxSize = 3;
+            this.size = Math.random() * (maxSize - 1) + 1;
+            this.velocity = this.size * 0.35;
+            const opacity = this.size / maxSize;
+            this.fill = 'rgb(255 255 255 / ${opacity})';
+
+            this.windSpeed = (Math.random() - 0.5) * 0.1;
+            this.windAngle = Math.random() * Math.PI * 2;
+        } 
+        isOutsideCanvas() {
+            return this.y > canvas.height + this.size;
+        }
+        reset () {
+            this.x = Math.random() * canvas.width;
+            this.y = -this.size;
+        }
+        update () {
+            this.windAngle += this.windSpeed;
+            this.wind = Math.cos(this.windAngle * 0.5);
+
+            this.x += this.wind;
+            this.y += this.velocity;
+            if (this.isOutsideCanvas()) {
+                this.reset();
+            }
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.fill;
+            ctx.fill();
+            ctx.closePath();
+
+        }
+    }
+
+    const createSnowflakes = () => {
+        snowflakeCount = Math.floor(window.innerWidth * window.innerHeight / 1400);
+
+        for(let i = 0; i < snowflakeCount; i++) {
+            snowflakes.push(new Snowflake());
+        }
+    }
+    
+    const resizeCanvas = () => {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        canvas.width = width * pixelRatio;
+        canvas.height = height * pixelRatio;
+        canvas.style.width = '${width}px';
+        canvas.style.heigth = '${height}px';
+        ctx.scale(pixelRatio, pixelRatio);
+        snowflakes.length = 0;
+        createSnowflakes();
+    };
+
+    window.addEventListener('resize', resizeCanvas);
+
+    resizeCanvas();
+
+    const render = () => {
+        requestAnimationFrame(render);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        snowflakes.foreach(snowflake => {
+            snowflake.update();
+            snowflake.draw();
+        });
+    }
+    render();
+</script>
