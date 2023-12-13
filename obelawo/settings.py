@@ -82,6 +82,9 @@ DATABASES = {
         'PORT' : '3306',
         'USER' : 'root',
         'PASSWORD' : 'Rotimi05#@',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TALES'"
+        },
     }
 }
 
