@@ -69,7 +69,7 @@ document.getElementById('button').addEventListener('click', function (e) {
     reservation_date: document.getElementById('reservation_date').value,
     reservation_slot: document.getElementById('reservation_slot').value,
     people: document.getElementById('people').value,
-    comment: document.getElementById('talk').value,
+    comment: document.getElementById('msg').value,
   };
 
   fetch("{% url 'bookings' %}", { method: 'POST', body: JSON.stringify(formdata) })

@@ -24,11 +24,11 @@
       <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
         {% for item in menu.menu %}
         <div class="col-lg-6 menu-item filter-starters">
-          <img src="{%  static '/img/menu/lobster-bisque.jpg '  %}"class="menu-img" alt="">
+          <img src="{%  static '/img/menu/lobster-bisque.jpg ' %}"class="menu-img" alt="">
           <div class="menu-content">
             <a href="{% url 'menu_item' pk=item.pk %}">
-              {{ item.name }}
-              Lobster Bisque
+              {{ item.title_name }}
+              <!-- Lobster Bisque -->
             </a>
               <span>{{ item.price }}</span>
           </div>
@@ -38,11 +38,11 @@
         </div>
 
         <div class="col-lg-6 menu-item filter-specialty">
-          <img src="{%  static '/img/menu/bread-barrel.jpg'  %}" class="menu-img" alt="">
+          <img src="{%  static '/img/menu/bread-barrel.jpg' %}" class="menu-img" alt="">
           <div class="menu-content">
             <a href="{% url 'menu_item' pk=item.pk %}">
-              {{ item.name }}
-              Bread Barrel
+              {{ item.title_name }}
+              <!-- Bread Barrel -->
             </a>
             <span>(( item.price ))</span>
           </div>
@@ -52,11 +52,11 @@
         </div>
 
         <div class="col-lg-6 menu-item filter-starters">
-          <img src="{%  static '/img/menu/cake.jpg'  %}" class="menu-img" alt="">
+          <img src="{%  static '/img/menu/cake.jpg' %}" class="menu-img" alt="">
           <div class="menu-content">
             <a href="{% url 'menu_item' pk=item.pk %}">
-              {{ item.name }}
-              Crab Cake
+              {{ item.title_name }}
+              <!-- Crab Cake -->
             </a>
             <span>{{ item.price }}</span>
           </div>
@@ -66,11 +66,11 @@
         </div>
 
         <div class="col-lg-6 menu-item filter-salads">
-          <img src="{%  static '/img/menu/caesar.jpg'  %}" class="menu-img" alt="">
+          <img src="{%  static '/img/menu/caesar.jpg' %}" class="menu-img" alt="">
           <div class="menu-content">
             <a href="{% url 'menu_item' pk=item.pk %}">
-              {{ item.name }}
-              Caesar Selections
+              {{ item.title_name }}
+              <!-- Caesar Selections -->
             </a>
             <span>{{ item.price }}</span>
           </div>
@@ -80,11 +80,11 @@
         </div>
 
         <div class="col-lg-6 menu-item filter-specialty">
-          <img src="{%  static '/img/menu/tuscan-grilled.jpg'  %}" class="menu-img" alt="">
+          <img src="{%  static '/img/menu/tuscan-grilled.jpg' %}" class="menu-img" alt="">
           <div class="menu-content">
             <a href="{% url 'menu_item' pk=item.pk %}">
-              {{ item.name }}
-              Tuscan Grilled
+              {{ item.title_name }}
+              <!-- Tuscan Grilled -->
             </a>
             <span>{{ item.price }}</span>
           </div>
@@ -94,11 +94,11 @@
         </div>
 
         <div class="col-lg-6 menu-item filter-starters">
-          <img src="{%  static '/img/menu/mozzarella.jpg'  %}" class="menu-img" alt="">
+          <img src="{%  static '/img/menu/mozzarella.jpg' %}" class="menu-img" alt="">
           <div class="menu-content">
             <a href="{% url 'menu_item' pk=item.pk %}">
-              {{ item.name }}
-              Mozzarella Stick
+              {{ item.title_name }}
+              <!-- Mozzarella Stick -->
             </a>
             <span>{{ item.price }}</span>
           </div>
@@ -108,11 +108,11 @@
         </div>
 
         <div class="col-lg-6 menu-item filter-salads">
-          <img src="{%  static '/img/menu/greek-salad.jpg'  %}" class="menu-img" alt="">
+          <img src="{%  static '/img/menu/greek-salad.jpg' %}" class="menu-img" alt="">
           <div class="menu-content">
             <a href="{% url 'menu_item' pk=item.pk %}">
-              {{ item.name }}
-              Greek Salad
+              {{ item.title_name }}
+              <!-- Greek Salad -->
             </a>
             <span>{{ item.price }}</span>
           </div>
@@ -122,11 +122,11 @@
         </div>
 
         <div class="col-lg-6 menu-item filter-salads">
-          <img src="{%  static '/img/menu/spinach-salad.jpg'  %}" class="menu-img" alt="">
+          <img src="{%  static '/img/menu/spinach-salad.jpg' %}" class="menu-img" alt="">
           <div class="menu-content">
             <a href="{% url 'menu_item' pk=item.pk %}">
-              {{ item.name }}
-              Spinach Salad
+              {{ item.title_name }}
+              <!-- Spinach Salad -->
             </a>
             <span>{{ item.price }}</span>
           </div>
@@ -136,11 +136,11 @@
         </div>
 
         <div class="col-lg-6 menu-item filter-specialty">
-          <img src="{%  static '/img/menu/lobster-roll.jpg'  %}" class="menu-img" alt="">
+          <img src="{%  static '/img/menu/lobster-roll.jpg' %}" class="menu-img" alt="">
           <div class="menu-content">
             <a href="{% url 'menu_item' pk=item.pk %}">
-              {{ item.name }}
-              Lobster Roll
+              {{ item.title_name }}
+              <!-- Lobster Roll -->
             </a>
             <span>{{ item.price }}</span>
           </div>
